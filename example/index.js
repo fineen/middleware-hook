@@ -4,8 +4,10 @@
 
 var Statistics = require('../')
 var bytes = require('bytes')
-var roo = require('roo')()
+var Koa = require('koa')
 var ms = require('ms')
+
+var app = new Koa();
 
 var stats = Statistics(marker, reduce)
 
@@ -30,25 +32,20 @@ function reduce (name, a, b, c, d) {
   console.log('%s - time: %s memory: %s', name, ms(time), bytes(memory));
 }
 
-roo.use(stats(function * find_user (next) {
-  yield wait(3500)
-  yield next
-  yield wait(500)
+app.use(stats(async function find_user (ctx, next) {
+  await wait(3500)
+  await next()
+  await wait(500)
 }))
 
-roo.get('/', stats(function * render () {
-  yield wait(1000)
-  this.body = 'hi there!'
-  yield wait(2000)
+app.use(stats(async function render (ctx, next) {
+  await wait(1000)
+  ctx.body = 'hi there!'
+  await wait(2000)
 }))
 
 function wait (ms) {
-  return function (done) {
-    setTimeout(done, ms)
-  }
+  return new Promise(res => setTimeout(res, ms))
 }
 
-roo.listen(5000, function() {
-  var addr = this.address()
-  console.log('listening on [%s]:%s', addr.address, addr.port);
-})
+app.listen(5000);

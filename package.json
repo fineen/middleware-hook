@@ -1,6 +1,6 @@
 {
   "name": "koa2-middleware-hook",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "low-level granular hooks for your koa2 middleware",
   "keywords": [
     "hooks",
@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "bytes": "^3.1.0",
-    "roo": "^2.0.1",
+    "koa": "^2.7.0",
     "ms": "^2.1.1"
   },
   "main": "index"
