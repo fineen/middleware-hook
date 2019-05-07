@@ -21,12 +21,12 @@ module.exports = Hooks
 
 function Hooks (marker, reduce) {
 
-  return function hooks (generator) {
-    var name = generator.name || 'middleware'
-    return compose([ tracer, generator ])
+  return function hooks (middleware) {
+    var name = middleware.name || 'middleware'
+    return compose([ tracer, middleware ])
 
-    function * tracer (next) {
-      var hooks = this.state.hooks = this.state.hooks || {}
+    async function tracer (ctx, next) {
+      var hooks = ctx.state.hooks = ctx.state.hooks || {}
       var start = marker()
 
       // diff with the previous start
@@ -40,7 +40,7 @@ function Hooks (marker, reduce) {
       }
 
       // go through the remaining middleware
-      yield next
+      await next()
 
       var end = marker()
 

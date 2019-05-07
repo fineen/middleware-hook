@@ -1,5 +1,5 @@
 
-# koa-middleware-hook
+# koa2-middleware-hook
 
 low-level hooks for your middleware. this is mostly an experiment,
 but it lets you hook into the following spots:
@@ -16,7 +16,7 @@ probably not suitable for production, though I haven't profiled it or anything.
 ## Install
 
 ```
-npm install koa-middleware-hook
+npm install koa2-middleware-hook
 ```
 
 ## Usage

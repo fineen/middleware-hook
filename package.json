@@ -1,7 +1,7 @@
 {
-  "name": "koa-middleware-hook",
-  "version": "1.0.2",
-  "description": "low-level granular hooks for your koa middleware",
+  "name": "koa2-middleware-hook",
+  "version": "1.0.0",
+  "description": "low-level granular hooks for your koa2 middleware",
   "keywords": [
     "hooks",
     "middleware",
@@ -10,16 +10,16 @@
   "author": "Matthew Mueller <matt@lapwinglabs.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/koajs/middleware-hook.git"
+    "url": "git@github.com:fineen/middleware-hook.git"
   },
   "dependencies": {
-    "debug": "^2.2.0",
-    "koa-compose": "^2.3.0"
+    "debug": "^4.1.1",
+    "koa-compose": "^4.1.0"
   },
   "devDependencies": {
-    "bytes": "^2.1.0",
-    "roo": "^0.5.0",
-    "ms": "^0.7.1"
+    "bytes": "^3.1.0",
+    "roo": "^2.0.1",
+    "ms": "^2.1.1"
   },
   "main": "index"
 }
